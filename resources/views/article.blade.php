@@ -6,12 +6,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" />
 	<script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+
 </head>
 <body>
 
 
 <div class="container">
-	<h1>Add Article</h1>
+	<h1>Create Tag</h1>
 
 
 	@if(Session::has('success'))
@@ -59,20 +60,24 @@
 		</div>
 	</form>
 
-
-	<h1>Article Lists</h1>
-	@if($articles->count())
+<div class="card">
+    	<div class="card-body">
+            @if($articles->count())
 		@foreach($articles as $key => $article)
-			<h3>{{ $article->title }}</h3>
-			<p>{{ $article->body }}</p>
+			{{-- <h3>{{ $article->title }}</h3>
+			<p>{{ $article->body }}</p> --}}
 			<div>
-				<strong>Tag:</strong>
+				{{-- <strong>Tags:</strong> --}}
 				@foreach($article->tags as $tag)
-					<label class="label label-info">{{ $tag->name }}</label>
+					{{-- <label class="label label-info">{{ $tag->name }}</label> --}}
+                <a href="" class="label label-info">{{ $tag->name }}</a>
 				@endforeach
 			</div>
+
 		@endforeach
+        </div>
 	@endif
+</div>
 </div>
 
 
